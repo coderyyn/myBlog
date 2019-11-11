@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>张鹏个人博客</title>
+<meta name="keywords" content="个人博客,张鹏个人博客,张鹏">
+<meta name="description" content="张鹏个人博客">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="Material/favicon.ico" type="image/x-icon">
+<link href="Material/base.css" rel="stylesheet">
+<link href="Material/index.css" rel="stylesheet">
+<link href="Material/m.css" rel="stylesheet">
+<script src="Material/page.js"></script>
+</head>
+<body>
+<header>
+  <div id="mnav">
+    <div class="logo"><a href="index.html">张鹏个人博客</a></div>
+    <h2 id="mnavh"><span class="navicon"></span></h2>
+    <ul id="starlist">
+      <li class=""><a href="index.html">网站首页</a></li>
+      <li class=""><a href="./about/index.html">关于我</a></li>
+      <li class=""><a href="./blogs/index.html">博客日记</a></li>
+      <li class=""><a href="./comment/index.html">留言</a></li>
+      <li class=""><a href="https://blog.csdn.net/ychgyyn/index.html">CSDN博客</a></li>
+    </ul>
+  </div>
+  <script>
+      window.onload = function (){
+        	var oH2 = document.getElementById("mnavh");
+        	var oUl = document.getElementById("starlist");
+        	oH2.onclick = function (){
+          		var style = oUl.style;
+          		style.display = style.display == "block" ? "none" : "block";
+          		oH2.className = style.display == "block" ? "open" : ""
+        	}
+          var obj=null;
+          var As=document.getElementById('starlist').getElementsByTagName('a');
+          obj = As[0];
+          for(i=1;i<As.length;i++){
+            if(window.location.href.indexOf(As[i].href)>=0)
+              obj=As[i];
+          }
+          obj.id='selected'
+        }
+  </script>
+</header>
+<div class="line46"></div>
+<article>
+  <div class="pics">
+    <ul>
+
+      <li><i><a href="./news/life/2018-06-17/873.html" target="_blank"><img src="Material/a.jpg"></a></i><span>安静地做一个敲代码的美男</span></li>
+
+      <li><i><a href="./news/life/2018-04-27/816.html" target="_blank"><img src="Material/b.jpg"></a></i><span>个人博客，属于我的小世界！</span></li>
+
+      <li><i><a href="./jstt/bj/2015-01-09/740.html" target="_blank"><img src="Material/c.jpg"></a></i><span>【匆匆那些年】总结个人博客…</span></li>
+    </ul>
+  </div>
+  <div class="blank"></div>
+  <div class="leftbox">
+    <div class="tuijian">
+      <h2 class="hometitle"><span><a href="./project/div/index.html">个人项目实战</a></span>个人项目实战</h2>
+      <ul>
+
+<li>
+          <div class="tpic"><a href="./project/huahua/爱心鱼" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>友情赞助  huahua</b><span>爱心的鱼：一款吃鱼生存的网页游戏</span><a href="./project/huahua/爱心鱼" target="_blank" class="readmore">爱心的鱼</a>
+</li>
+
+<li>
+          <div class="tpic"><a href="./project/2.html" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>暂无</b><span>敬请等待...</span><a href="./project/882.html" target="_blank" class="readmore">点击</a>
+</li>
+
+<li>
+          <div class="tpic"><a href="./project/2.html" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>暂无</b><span>敬请等待...</span><a href="./project/882.html" target="_blank" class="readmore">点击</a>
+</li>
+
+<li>
+          <div class="tpic"><a href="./project/2.html" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>暂无</b><span>敬请等待...</span><a href="./project/882.html" target="_blank" class="readmore">点击</a>
+</li>
+
+<li>
+          <div class="tpic"><a href="./project/2.html" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>暂无</b><span>敬请等待...</span><a href="./project/882.html" target="_blank" class="readmore">点击</a>
+</li>
+
+<li>
+          <div class="tpic"><a href="./project/2.html" target="_blank"><img src="Material/dogmin.jpg"></a></div>
+          <b>暂无</b><span>敬请等待...</span><a href="./project/882.html" target="_blank" class="readmore">点击</a>
+</li>
+     </ul>
+    </div><a name="topnew"></a>
+</div>
+  </div>
+  <div class="rightbox">
+    <div class="aboutme">
+      <h2 class="ab_title">关于我</h2>
+      <div class="avatar"><img src="Material/yyn.jpg"></div>
+      <div class="ab_con">
+        <p>网名：CoderYYN | 月月鸟</p>
+        <p>职业：大数据攻城狮</p>
+        <p>籍贯：湖南省—湘潭市</p>
+        <p>邮箱：coderyyn@qq.com</p>
+      </div>
+    </div>
+    <div class="blank"></div>
+    <div class="search">
+      <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="weixin">
+      <h2 class="ab_title">微信号</h2>
+      <ul>
+        <img src="Material/wx.png">
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="./index.html">张鹏个人博客</a> <a href="http://www.miitbeian.gov.cn">湘ICP备18016195号-1</a></p>
+</footer>
+
+
+
+</body></html>

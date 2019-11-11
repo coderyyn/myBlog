@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>张鹏个人博客</title>
+    <meta name="referrer" content="no-referrer"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Material/favicon.ico" type="image/x-icon">
+    <link href="../about/about_me/base.css" rel="stylesheet">
+    <link href="../about/about_me/index.css" rel="stylesheet">
+    <link href="../about/about_me/m.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="/skin/html/js/modernizr.js"></script>
+    <![endif]-->
+	<style>
+        a{
+        color:blue;
+        }
+	</style>
+</head>
+  
+  <body>
+    <header>
+      <div id="mnav">
+        <div class="logo">
+          <a href="http://www.coderyyn.cn/">张鹏个人博客</a></div>
+        <h2 id="mnavh">
+          <span class="navicon"></span>
+        </h2>
+        <ul id="starlist">
+          <li>
+            <a href="http://www.coderyyn.cn/">网站首页</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/about/">关于我</a></li>
+          <li class="selected">
+            <a href="http://www.coderyyn.cn/blogs/" id="selected">博客日记</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/study/">学无止境</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/news/">慢生活</a></li>
+          <li class="">
+            <a href="http://www.yangqq.com/comment">留言</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/link.html">优秀个人博客</a></li>
+          <li class="">
+            <a href="https://blog.csdn.net/ychgyyn/">CSDN博客</a></li>
+        </ul>
+      </div>
+      
+	  <script>window.onload = function() {
+          var oH2 = document.getElementById("mnavh");
+          var oUl = document.getElementById("starlist");
+          oH2.onclick = function() {
+            var style = oUl.style;
+            style.display = style.display == "block" ? "none": "block";
+            oH2.className = style.display == "block" ? "open": ""
+          }
+          var obj = null;
+          var As = document.getElementById('starlist').getElementsByTagName('a');
+          obj = As[0];
+          for (i = 1; i < As.length; i++) {
+            if (window.location.href.indexOf(As[i].href) >= 0) obj = As[i];
+          }
+          obj.id = 'selected'
+        }</script>
+    </header>
+    <div class="line46"></div>
+    <div class="blank"></div>
+    <article>
+      <div class="leftbox">
+		<h1><a href="http://coderyyn.cn/blogs/1.html">如何优雅的访问谷歌等外国网站</a></h1>
+		<p>作为一个在校大学生，我平常使用的都是校园宽带，资费情况就不多吐槽怕被拉去喝茶，但是我最想吐槽的就是这学期新开学更新的网络，以往不能访问Google跟Android等大多数官网也就算了，但是现在连GitHub跟Kaggle都不能访问了是几个意思???</p>
+      </div>
+      <div class="rightbox">
+        <div class="aboutme">
+          <h2 class="ab_title">关于我</h2>
+          <div class="avatar">
+            <img src="http://coderyyn.cn/about/about_me/yyn.jpg"></div>
+          <div class="ab_con">
+            <p>网名：CoderYYN | 月月鸟</p>
+            <p>职业：大数据攻城狮</p>
+            <p>籍贯：湖南省—湘潭市</p>
+            <p>邮箱：coderyyn@qq.com</p>
+          </div>
+        </div>
+        <div class="weixin">
+          <h2 class="ab_title">个人微信</h2>
+          <ul>
+            <img src="http://coderyyn.cn/about/about_me/wx.png"></ul>
+        </div>
+      </div>
+    </article>
+    <footer>
+      <p>Design by
+        <a href="http://www.coderyyn.cn/">张鹏个人博客</a>
+        <a href="http://www.miitbeian.gov.cn">湘ICP备18016195号-1</a></p>
+    </footer>
+  </body>
+
+</html>

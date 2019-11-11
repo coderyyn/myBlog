@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>张鹏个人博客</title>
+    <meta name="referrer" content="no-referrer">//可以显示https的图片
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Material/favicon.ico" type="image/x-icon">
+    <link href="../about/about_me/base.css" rel="stylesheet">
+    <link href="../about/about_me/index.css" rel="stylesheet">
+    <link href="../about/about_me/m.css" rel="stylesheet">
+	<link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-7b4cdcb592.css" rel="stylesheet">//CSDN博客的样式
+    <!--[if lt IE 9]>
+      <script src="/skin/html/js/modernizr.js"></script>
+    <![endif]-->
+	<style>
+	</style>
+</head>
+  
+  <body>
+    <header>
+      <div id="mnav">
+        <div class="logo">
+          <a href="http://www.coderyyn.cn/">张鹏个人博客</a></div>
+        <h2 id="mnavh">
+          <span class="navicon"></span>
+        </h2>
+        <ul id="starlist">
+          <li>
+            <a href="http://www.coderyyn.cn/">网站首页</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/about/">关于我</a></li>
+          <li class="selected">
+            <a href="http://www.coderyyn.cn/blogs/" id="selected">博客日记</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/study/">学无止境</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/news/">慢生活</a></li>
+          <li class="">
+            <a href="http://www.yangqq.com/comment">留言</a></li>
+          <li class="">
+            <a href="http://www.coderyyn.cn/link.html">优秀个人博客</a></li>
+          <li class="">
+            <a href="https://blog.csdn.net/ychgyyn/">CSDN博客</a></li>
+        </ul>
+      </div>
+      
+	  <script>window.onload = function() {
+          var oH2 = document.getElementById("mnavh");
+          var oUl = document.getElementById("starlist");
+          oH2.onclick = function() {
+            var style = oUl.style;
+            style.display = style.display == "block" ? "none": "block";
+            oH2.className = style.display == "block" ? "open": ""
+          }
+          var obj = null;
+          var As = document.getElementById('starlist').getElementsByTagName('a');
+          obj = As[0];
+          for (i = 1; i < As.length; i++) {
+            if (window.location.href.indexOf(As[i].href) >= 0) obj = As[i];
+          }
+          obj.id = 'selected'
+        }</script>
+    </header>
+    <div class="line46"></div>
+    <div class="blank"></div>
+    <article>
+      <div class="leftbox">
+		<div class="blog-content-box">
+			<div class="article-header">
+				<h1 class="title-article">如何优雅的访问谷歌等外国网站</h1>
+			</div>
+			<article class="baidu_pl">
+<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod="popu_307" data-dsm="post">		
+<div id="content_views" class="markdown_views prism-tomorrow-night">
+<!-- flowchart 箭头图标 勿删 -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg>
+<h2><a name="t0"></a><a id="_0" target="_blank"></a>前言</h2>
+<p>作为一个在校大学生，我平常使用的都是校园宽带，资费情况就不多吐槽怕被拉去喝茶，但是我最想吐槽的就是这学期新开学更新的网络，以往不能访问Google跟Android等大多数官网也就算了，但是现在连GitHub跟Kaggle都不能访问了是几个意思，你既然都实名认证了为什么还要限制我们访问外网。<br>
+<strong>作为一个优秀的程序员我不能容忍汲取知识的渠道被封锁，于是我开始了搭建梯子之路。</strong></p>
+<h2><a name="t1"></a><a id="_4" target="_blank"></a>环境</h2>
+<ul>
+<li>海外的服务器(这里用的是vultr公司的Centos7系统)</li>
+<li>Shadowsocks软件</li>
+</ul>
+<h1><a name="t2"></a><a id="_8" target="_blank"></a>搭建流程</h1>
+<h2><a name="t3"></a><a id="_9" target="_blank"></a>购买服务器</h2>
+<p>这个的话我用的是<strong>vultr</strong>公司的，但是大同小异，腾讯云、阿里云的海外服务器应该也是可以的。<br>
+这里我演示如何在<strong>vultr</strong>上面购买服务器：<br>
+<strong>VULTR官网</strong>：<a href="https://www.vultr.com/?ref=7919617" rel="nofollow" target="_blank">https://www.vultr.com</a><br>
+<strong>注册账号：在框框里面输入你的邮箱和密码，点击右边的按钮</strong>	
+<img src="https://img-blog.csdnimg.cn/20190304195721292.png" width="100%" height="auto">
+<strong>输入验证码，点击按钮创建用户</strong><br>
+<img src="https://img-blog.csdnimg.cn/2019030419460068.png" width="100%" height="auto"><br>
+<strong>创建用户后，选择充值，可以用支付宝，最低充值10美元，我冲的时候大概是70人民币左右</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304194859782.png" width="100%" height="auto"><strong>充值完成后创建服务器，点击左边的Servers，再点击右上角的加号按钮</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304195326304.png" width="100%" height="auto"><strong>然后选择服务器相关信息（服务器所在地区、系统版本、配置）</strong></p>
+<h4><a id="_18" target="_blank"></a><strong>这里我建议地区选择美国，千万不要选择日本，亲测日本的…</strong></h4>
+<p><img src="https://img-blog.csdnimg.cn/20190304200712343.png" width="100%" height="auto"><strong>选择Centos7的服务器，当然Ubuntu的其实也是可以的，有需要的小伙伴可以在后面的服务器配置上除了刚开始安装相关软件和后面的设置启动服务哪里按照服务器本身特殊的方法下载设置，其余地方都是一样的</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304200930281.png" width="100%" height="auto"><strong>选择价格，这里的话如我个人用建议选择最低五美元一个月的，因为这个服务器我们是用来搭梯子的，所以对配置要求不高，当然你要是有钱想要高速网络，那么你可以选择带宽更高的其他配置。<br>
+Ps：注意这个服务器也可以随时关掉，计费也是按小时计费的</strong><br>
+<img src="https://img-blog.csdnimg.cn/2019030420195617.png" width="100%" height="auto"><strong>点击右下角的按钮，部署服务器</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304203156785.png" width="100%" height="auto"><strong>等待几分钟，因为服务器部署需要时间来安装系统分配资源。然后点开我们买好的服务器</strong><br>
+<img src="https://img-blog.csdnimg.cn/2019030420370890.png" width="100%" height="auto"><strong>记住服务器的IP地址与密码</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304203818462.png" width="100%" height="auto"></p>
+<h2><a name="t4"></a><a id="_26" target="_blank"></a>服务器配置</h2>
+<p>完成上面步骤后，服务器成功购买，这个时候我们就要利用<strong>Xshell</strong>对服务器进行相关配置<br>
+<strong>Xshell安装与使用请参考：</strong><a href="https://blog.csdn.net/ychgyyn/article/details/84350734" rel="nofollow" target="_blank">Xshell的下载与使用</a><br>
+<strong>打开Xshell，输入IP地址与密码连接服务器</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304205540418.png" width="100%" height="auto"><strong>安装 Python</strong><br>
+<code>yum install python-setuptools</code><br>
+<strong>安装 Python 的 Pip 命令</strong><br>
+<code>yum install python-pip</code><br>
+<strong>安装 Shadowsocks</strong><br>
+<code>pip install shadowsocks</code></p>
+<h4><a id="y_36" target="_blank"></a>注意上述软件或命令安装过程只需要在提示的时候输入<code>y</code>就行了</h4>
+<p><strong>创建 Shadowsocks 的配置文件夹</strong><br>
+<code>mkdir /etc/shadowsocks</code><br>
+<strong>修改 Shadowsocks 的配置文件</strong><br>
+<code>vi /etc/shadowsocks/config.json</code><br>
+<strong>Shadowsocks 的配置文件内容如下</strong></p>
+<pre class="prettyprint"><code class="has-numbering">{
+    "server":"0.0.0.0",#你的服务器IP
+    "server_port":8888,#开放的端口，可修改
+    "password":"MyNewPass4!",#设置的密码
+    "timeout":600,#超时时间，可修改
+    "method":"aes-256-cfb",#加密方式，可修改，根据客户端的选择而设置，默认是这个
+    "fast_open": false
+}
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li></ul></pre>
+<p><strong>如果开放多端口，配置文件则这样写</strong></p>
+<pre class="prettyprint"><code class="has-numbering">{
+    "server":"0.0.0.0",#你的服务器IP
+    "port_password": {
+        "8888": "your_password1",#端口:密码
+        "8889": "your_password2"
+    },
+    "timeout":600,#超时时间，可修改
+    "method":"aes-256-cfb",#加密方式，可修改，根据客户端的选择而设置，默认是这个
+    "fast_open": false
+}
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li></ul></pre>
+<p><strong>启动 Shadowsocks</strong><br>
+<code>ssserver -c /etc/shadowsocks/config.json -d start</code><br>
+<strong>关闭 Shadowsocks（需要时可用）</strong><br>
+<code>ssserver -c /etc/shadowsocks/config.json -d stop</code><br>
+<strong>其余 Shadowsocks 相关命令请到官网查看：<a href="https://github.com/shadowsocks/shadowsocks" rel="nofollow" target="_blank">https://github.com/shadowsocks/shadowsocks</a></strong></p>
+<h3><a name="t5"></a><a id="_Shadowsocks__70" target="_blank"></a>可选：配置 Shadowsocks 服务自启动</h3>
+<p><strong>创建 Shadowsocks 的配置文件</strong><br>
+<code>vi /etc/systemd/system/shadowsocks.service</code><br>
+<strong>Shadowsocks 配置文件内容如下</strong></p>
+<pre class="prettyprint"><code class="has-numbering">[Unit]
+Description=Shadowsocks
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/shadowsocks/server.pid
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /run/shadowsocks
+ExecStartPre=/bin/chown root:root /run/shadowsocks
+#注意/etc/shadowsocks/config.json这个路径是你前面配置文件的路径
+ExecStart=/usr/bin/ssserver --pid-file /var/run/shadowsocks/server.pid -c /etc/shadowsocks/config.json -d start
+Restart=on-abort
+User=root
+Group=root
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li></ul></pre>
+<p><strong>给配置文件设置权限</strong><br>
+<code>chmod 755 /etc/systemd/system/shadowsocks.service</code><br>
+<strong>启动服务</strong><br>
+<code>systemctl start shadowsocks</code><br>
+<strong>设置开机自启</strong><br>
+<code>systemctl enable shadowsocks</code><br>
+<strong>开放配置端口(以8888为例)</strong><br>
+<code>firewall-cmd --permanent --zone=public --add-port=8888/tcp</code><br>
+<strong>加载配置端口设置</strong><br>
+<code>firewall-cmd --reload</code></p>
+<h2><a name="t6"></a><a id="_106" target="_blank"></a>客户端配置</h2>
+<p><strong>根据系统下载 Shadowsocks</strong><br>
+Windows：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" rel="nofollow" target="_blank">https://github.com/shadowsocks/shadowsocks-windows/releases</a><br>
+Linux：<a href="https://github.com/shadowsocks/shadowsocks-qt5/releases" rel="nofollow" target="_blank">https://github.com/shadowsocks/shadowsocks-qt5/releases</a><br>
+Mac：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases" rel="nofollow" target="_blank">https://github.com/shadowsocks/ShadowsocksX-NG/releases</a><br>
+Android：<a href="https://github.com/shadowsocks/shadowsocks-android/releases" rel="nofollow" target="_blank">https://github.com/shadowsocks/shadowsocks-android/releases</a><br>
+IOS：<a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" rel="nofollow" target="_blank">https://github.com/shadowsocks/shadowsocks-iOS/releases</a></p>
+<p><strong>这里我只演示Windows下如何设置</strong>（毕竟我没有Mac跟IOS，暗示穷）<strong>，其余的大同小异，都是输入地址密码等相关信息</strong><br>
+<strong>输入你IP地址以及设置的密码、端口、加密方式、想要本地运行的端口</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304215200318.png" width="100%" height="auto"><br>
+<strong>点击确定后，右下角会多出一个纸飞机造型的图标，这个时候 Shadowsocks 就已经运行在你设置的端口（10080）上面了，但是还需要你在用浏览器的时候使用一个SwitchyOmega的切换代理的插件，插件配置如下</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304215853387.png" width="100%" height="auto"><strong>如果不会使用或者嫌麻烦以及需要对某些软件使用代理的话，也可以打开系统代理（全局模式）<br>
+右键纸飞机图标，最上面有个系统代理，点一下即可在任何软件里面使用代理上网</strong><br>
+<img src="https://img-blog.csdnimg.cn/20190304220043167.png" width="100%" height="auto"></p>
+<h2><a name="t7"></a><a id="_121" target="_blank"></a>开始你的探索之旅吧！！！</h2>
+<h2><a name="t8"></a><a id="_122" target="_blank"></a>总结</h2>
+<p><strong>整个过程实际是利用海外服务器做个中间代理，我们上网的时候借用海外服务器做跳板来访问外国网站，我们玩吃鸡等外国游戏使用的加速器其实也是这个原理</strong></p>
+<h3><a name="t9"></a><a id="_125" target="_blank"></a>最后告诫大家去访问外国网站千万不能传播不正当信息，切记！切记！切记！</h3>
+</div>
+</div>
+			</article>
+		</div>
+      </div>
+      <div class="rightbox">
+        <div class="aboutme">
+          <h2 class="ab_title">关于我</h2>
+          <div class="avatar">
+            <img src="http://coderyyn.cn/about/about_me/yyn.jpg"></div>
+          <div class="ab_con">
+            <p>网名：CoderYYN | 月月鸟</p>
+            <p>职业：大数据攻城狮</p>
+            <p>籍贯：湖南省—湘潭市</p>
+            <p>邮箱：coderyyn@qq.com</p>
+          </div>
+        </div>
+        <div class="weixin">
+          <h2 class="ab_title">个人微信</h2>
+          <ul>
+            <img src="http://coderyyn.cn/about/about_me/wx.png" width="100%" height="auto"></ul>
+        </div>
+      </div>
+    </article>
+    <footer>
+      <p>Design by
+        <a href="http://www.coderyyn.cn/">张鹏个人博客</a>
+        <a href="http://www.miitbeian.gov.cn">湘ICP备18016195号-1</a></p>
+    </footer>
+  </body>
+
+</html>

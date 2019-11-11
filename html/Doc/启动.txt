@@ -1,0 +1,7 @@
+nohup jupyter notebook --ip=0.0.0.0 --no-browser --allow-root  > /home/software/jupyter.log 2>&1 &
+jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
+netstat -tln | grep 8888
+lsof -i :8888
+kill -9 进程id
+nohup npm start  > /data/yourApp/weixin.log 2>&1 &
+nohup python3 WXCS.py  > /home/software/weixin.log 2>&1 &
